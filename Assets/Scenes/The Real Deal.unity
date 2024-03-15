@@ -13298,7 +13298,7 @@ SpriteRenderer:
   m_SortingLayerID: 34480901
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -114143193, guid: 2892bd9687cc82a4f879f40578ecc062, type: 3}
+  m_Sprite: {fileID: 1277258586, guid: 2892bd9687cc82a4f879f40578ecc062, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13405,9 +13405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerOrientation: {fileID: 1801415318}
-  NpcOrientation: {fileID: 0}
-  speed: 5
-  JumpPower: 5
+  speed: 4
+  JumpPower: 50
 --- !u!114 &1801415324
 MonoBehaviour:
   m_ObjectHideFlags: 0
