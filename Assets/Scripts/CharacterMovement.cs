@@ -28,7 +28,13 @@ public class CharacterMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         if (!gameObject.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Ground"))) return;
-        if (value.isPressed) rb.velocity += new Vector2(0f, JumpPower);
+        Vector2 CurrentPlayerPosition = new();
+        CurrentPlayerPosition = PlayerOrientation.transform.position;
+        if (value.isPressed)
+        {
+            rb.velocity += Vector2.up * JumpPower;
+            CharacterAnimator.SetBool("IsJumping", true);
+        }
     }
 
     void OnMove(InputValue value)
@@ -46,8 +52,11 @@ public class CharacterMovement : MonoBehaviour
     void FlipSprite()
     {
         bool isPlayerMoving = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
+        //Debug.Log(rb.velocity.x);
+        //bool isPlayerInAir = Mathf.Abs(rb.velocity.y) > Mathf.Epsilon;
         if (isPlayerMoving)
         {
+            //if (!isPlayerInAir) CharacterAnimator.SetBool("IsJumping", false);
             CharacterAnimator.SetBool("IsWalking", true);
             PlayerOrientation.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
             if (rb.velocity.x < 0f)
